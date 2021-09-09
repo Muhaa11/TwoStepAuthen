@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'codes/css/style.css' %}">
+    <div class="container">
+    <form action="" method="POST" autocomplete="off">
+      {% csrf_token %}
+          {{ form|crispy }}
+
+      <div class="form-group" id="signup-button">
+          <button class="btn">Verify</button>
+      </div>
+    </form>
+    </div>
+{% endblock %}

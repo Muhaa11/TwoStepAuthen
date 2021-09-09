@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'codes/css/style.css' %}" type="text/css">
+
+                <div class="welc">
+                        <h1> You are now logged in as {{user.username}}!</h1>
+                   
+
+                    <p>Not {{user.username}} ? <a href="{% url 'logout' %}">Logout</a></p>
+                    
+                </div>
+
+
+
+
+
+
+            
+{% endblock content %}

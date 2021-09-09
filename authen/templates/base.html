@@ -1,0 +1,72 @@
+<!---------- Mahmood Aljeboory ----------->
+
+<html lang="en">
+
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'codes/css/style.css' %}" type="text/css">
+    <title>Authentication</title>
+</head>
+
+   
+
+
+<body>
+    {% load static %}
+
+    <section class="header"> 
+        
+               
+        <div class="sig">
+
+            <h1>2-Factor Authentication System</h1>
+            <p>By Mahmood Aljeboory</p>
+        
+        </div>
+        
+        
+        <nav>
+            <div class="lnks">
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+
+                    {% else %}
+                        <li><a href="/register/">Register</a></li>
+                        <li><a href="/login/">Login</a></li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </nav>
+
+
+    </section>
+
+
+
+
+    <section class="msg">
+        <div>
+
+        {% if messages %}
+
+            {% for message in messages %}
+              <h1> {{message}} </h1>
+            {% endfor %}
+
+         {% endif %}
+
+        {% block content %}
+        {% endblock content %}
+
+
+        </div>
+    </section>
+    
+</body>
+</html>
